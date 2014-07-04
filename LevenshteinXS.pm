@@ -19,7 +19,7 @@ our @EXPORT_OK = ( @{ $EXPORT_TAGS{'all'} } );
 our @EXPORT = qw(
 distance
 );
-our $VERSION = '0.04';
+our $VERSION = '0.05';
 
 bootstrap Text::LevenshteinXS $VERSION;
 

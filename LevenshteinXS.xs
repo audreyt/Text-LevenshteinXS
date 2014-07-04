@@ -22,14 +22,14 @@ int levenshtein_distance(SV* s, SV* t)
   //Step 1
   int k,i,j,n,m,cost,*d,distance;
 
-  n=sv_len_utf8(s);
-  m=sv_len_utf8(t);
-
   U8* ps = SvPVX(s);
   U8* pt = SvPVX(t);
 
   // optimisation for equal strings
-  if(m == n && memEQ(ps, pt, n)) { return 0; }
+  if(SvCUR(s) == SvCUR(t) && memEQ(ps, pt, SvCUR(s))) { return 0; }
+
+  n=sv_len_utf8(s);
+  m=sv_len_utf8(t);
 
   if(n==0) {return m;}
   if(m==0) {return n;}
